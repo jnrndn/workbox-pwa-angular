@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RickNMortyService } from './services/rick-n-morty.service';
+import { RickNMortyService, Result } from './services/rick-n-morty.service';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { RickNMortyService } from './services/rick-n-morty.service';
   styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit {
-  characteres$: Observable<any>;
+  characteres$: Observable<Result[]>;
 
   constructor(private ricknmorty: RickNMortyService) { }
 

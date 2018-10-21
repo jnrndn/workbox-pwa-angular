@@ -15,12 +15,31 @@ export class RickNMortyService {
     const endpoint = 'character/';
 
     return this.http.get(`${this.baseUrl}${endpoint}`).pipe(
-      map((x: IapiResponse) => x.results),
+      map((x: ApiResponse) => x.results),
     );
   }
 }
 
-interface IapiResponse {
+export interface ApiResponse {
   info: {};
-  results: {};
+  results: Result[];
+}
+
+export interface Result {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: OriginOrLocation;
+  location: OriginOrLocation;
+  image: string;
+  episode?: string[] | string;
+  url: string;
+  created: string;
+}
+export interface OriginOrLocation {
+  name: string;
+  url: string;
 }
