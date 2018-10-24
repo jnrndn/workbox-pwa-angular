@@ -1,13 +1,22 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h2>Rick n' Morty Characteres</h2>
 </div>
-<li *ngFor="let character of characteres$ | async">
-  <ul>
-    {{ character.name }}
+<div class="container">
+  <mat-card
+    *ngFor="let character of characteres$ | async"
+    class="card"
+  >
+    <mat-card-header>
+      <mat-card-title>{{ character.name}}</mat-card-title>
+      <mat-card-subtitle>{{ character.gender }}</mat-card-subtitle>
+    </mat-card-header>
     <img
-      [src]='character.image'
-      [alt]='character.name'
+      mat-card-image
+      [src]="character.image"
+      [alt]="character.name"
     >
-  </ul>
-</li>
+    <mat-card-actions>
+      <button mat-raised-button>LIKE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
